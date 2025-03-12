@@ -3,6 +3,7 @@ title: Page Test Documentation
 description: A documentation site with LaTeX support and navigation
 markdown: kramdown
 math: katex
+color_scheme: dark
 aux_links:
   "View on GitHub":
     - "//github.com/gyu-heo/test_pages"

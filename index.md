@@ -3,6 +3,7 @@ title: Home
 layout: default
 nav_order: 1
 permalink: /
+math: true
 ---
 
 # Welcome to the Documentation
