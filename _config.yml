@@ -1,4 +1,4 @@
-theme: just-the-docs
+remote-theme: just-the-docs/just-the-docs
 title: Page Test Documentation
 description: A documentation site with LaTeX support and navigation
 markdown: kramdown
