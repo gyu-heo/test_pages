@@ -1,6 +1,6 @@
 ---
 title: Text 2
-layout: content
+layout: default
 parent: Directory 1
 nav_order: 2
 previous: text1

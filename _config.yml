@@ -2,7 +2,8 @@ remote-theme: just-the-docs/just-the-docs
 title: Page Test Documentation
 description: A documentation site with LaTeX support and navigation
 markdown: kramdown
-color_scheme: dark
+just_the_docs:
+  color_scheme: dark
 aux_links:
   "View on GitHub":
     - "//github.com/gyu-heo/test_pages"

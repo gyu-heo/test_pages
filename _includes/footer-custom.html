@@ -1,61 +1,16 @@
-<button class="theme-toggle" id="theme-toggle" title="Toggle Theme">
-  <span class="theme-icon"></span>
-</button>
+## Custom Footer
+<div class="custom-footer">
+  <div class="footer-sections">
+    <h4>Section Links</h4>
+    <ul>
+      <li><a href="/Playground/dir1">Directory 1</a></li>
+      <li><a href="/Playground/dir2">Directory 2</a></li>
+    </ul>
+  </div>
+</div>
 
-<style>
-.theme-toggle {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background: var(--body-bg-color, #fff);
-  border: 1px solid var(--border-color, #ccc);
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 999;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-}
-
-.theme-icon {
-  font-size: 20px;
-}
-
-/* Icons for each theme */
-html.light .theme-icon::after { content: "☀️"; }
-html.warm .theme-icon::after  { content: "📖"; }
-html.dark .theme-icon::after  { content: "🌙"; }
-</style>
-
-<script>
-(function() {
-  const themes = ["light", "warm", "dark"];
-  const root = document.documentElement;
-  const toggleBtn = document.getElementById("theme-toggle");
-
-  // 1. Initialize theme from localStorage or default to "warm"
-  const savedTheme = localStorage.getItem("theme") || "warm";
-  root.classList.add(savedTheme);
-
-  // 2. On button click, cycle to the next theme in [light -> warm -> dark -> light...]
-  function cycleTheme() {
-    const currentTheme = themes.find(t => root.classList.contains(t));
-    const currentIndex = themes.indexOf(currentTheme);
-    const nextIndex = (currentIndex + 1) % themes.length;
-    const nextTheme = themes[nextIndex];
-
-    // Remove old theme classes
-    themes.forEach(t => root.classList.remove(t));
-    // Add the new theme
-    root.classList.add(nextTheme);
-
-    // Store in localStorage
-    localStorage.setItem("theme", nextTheme);
-  }
-
-  toggleBtn.addEventListener("click", cycleTheme);
-})();
-</script>
+# Enable automatic ToC
+toc:
+  enabled: true
+  h_min: 2
+  h_max: 3

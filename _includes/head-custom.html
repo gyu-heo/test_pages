@@ -4,3 +4,31 @@
   {% when "katex" %}
     {% include katex.html %}
 {% endcase %}
+
+<!-- Add navigation styles -->
+<style>
+  .page-nav {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2em;
+    padding-top: 1em;
+    border-top: 1px solid #eeebee;
+  }
+  .page-nav-prev, .page-nav-next {
+    max-width: 45%;
+  }
+  .prev-link, .next-link {
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+  }
+  .prev-link span:first-child, .next-link span:first-child {
+    color: #5c5962;
+    font-size: 0.8em;
+    font-weight: normal;
+  }
+  .prev-link span:last-child, .next-link span:last-child {
+    color: #2c84fa;
+    font-weight: bold;
+  }
+</style>
