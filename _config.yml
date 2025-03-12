@@ -2,6 +2,8 @@ remote_theme: just-the-docs/just-the-docs
 title: Page Test Documentation
 description: A documentation site with LaTeX support and navigation
 markdown: kramdown
+kramdown:
+  math_engine: katex
 just_the_docs:
   math: katex
   color_scheme: dark
