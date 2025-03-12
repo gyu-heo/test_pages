@@ -2,17 +2,17 @@
 // First make sure this directory exists:
 // mkdir -p _sass/custom
 
-@media (prefers-color-scheme: light) {
-    .light {
-      --body-background-color: #f9f3e6; // Sepia/warm background
-      --sidebar-color: #f1ebd9;
-      --body-text-color: #433422;
-      --body-heading-color: #3b2e1e;
-      --nav-child-link-color: #5a4a35;
-      --link-color: #8a6534;
-      --code-background-color: #e9e3d0;
-    }
-  }
+
+.light {
+    --body-background-color: #f9f3e6; // Sepia/warm background
+    --sidebar-color: #f1ebd9;
+    --body-text-color: #433422;
+    --body-heading-color: #3b2e1e;
+    --nav-child-link-color: #5a4a35;
+    --link-color: #8a6534;
+    --code-background-color: #e9e3d0;
+}
+
   
   // Add some comfort settings for reading
   body {

@@ -1,84 +1,46 @@
-<!-- Add navigation styles -->
-<style>
-  .page-nav {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 2em;
-    padding-top: 1em;
-    border-top: 1px solid #eeebee;
-  }
-  .page-nav-prev, .page-nav-next {
-    max-width: 45%;
-  }
-  .prev-link, .next-link {
-    display: flex;
-    flex-direction: column;
-    text-decoration: none;
-  }
-  .prev-link span:first-child, .next-link span:first-child {
-    color: #5c5962;
-    font-size: 0.8em;
-    font-weight: normal;
-  }
-  .prev-link span:last-child, .next-link span:last-child {
-    color: #2c84fa;
-    font-weight: bold;
-  }
-</style>
+{% assign math = page.math | default: layout.math | default: site.math %}
 
-<!-- Theme toggle script -->
-<script>
-  function setTheme(themeName) {
-    localStorage.setItem('theme', themeName);
-    document.documentElement.className = themeName;
-  }
-  
-  function toggleTheme() {
-    const currentTheme = localStorage.getItem('theme') || 'warm-theme';
-    if (currentTheme === 'warm-theme') {
-      setTheme('light-theme');
-    } else if (currentTheme === 'light-theme') {
-      setTheme('dark-theme');
-    } else {
-      setTheme('warm-theme');
-    }
-  }
-  
-  // Set theme on initial load
-  (function() {
-    const savedTheme = localStorage.getItem('theme') || 'warm-theme'; // Default to warm
-    setTheme(savedTheme);
-  })();
-</script>
+{% case math %}
+  {% when "katex" %}
+    {% include katex.html %}
+{% endcase %}
 
-<!-- Theme-specific colors -->
+<!-- Theme-Specific Custom Properties -->
 <style>
-  .light-theme {
+  /* Light Theme */
+  html.light {
     --body-bg-color: #ffffff;
     --side-bar-bg-color: #f5f6fa;
     --text-color: #27262b;
     --code-bg-color: #f7f7f7;
+    --code-text-color: inherit;
+    --border-color: #eeebee;
+    --link-color: #0366d6; /* fallback if not defined below */
   }
   
-  .warm-theme {
-    --body-bg-color: #f9f3e6; /* Sepia/cream background */
+  /* Warm (Sepia) Theme */
+  html.warm {
+    --body-bg-color: #f9f3e6;
     --side-bar-bg-color: #f1ebd9;
-    --text-color: #433422; /* Slightly darker text for better contrast */
+    --text-color: #433422;
     --code-bg-color: #e9e3d0;
+    --code-text-color: inherit;
+    --border-color: #d6c9b9;
+    --link-color: #8a6534;
   }
   
-  .dark-theme {
+  /* Dark Theme */
+  html.dark {
     --body-bg-color: #282a36;
     --side-bar-bg-color: #21222c;
     --text-color: #f8f8f2;
-    --link-color: #8be9fd;
-    --active-link-color: #50fa7b;
     --code-bg-color: #44475a;
     --code-text-color: #f1fa8c;
     --border-color: #44475a;
+    --link-color: #8be9fd;
   }
   
-  /* Apply theme colors to elements */
+  /* Now apply these variables site-wide */
   body {
     background-color: var(--body-bg-color) !important;
     color: var(--text-color) !important;
@@ -88,21 +50,52 @@
     background-color: var(--side-bar-bg-color) !important;
   }
   
-  .main-content a {
-    color: var(--link-color, #0366d6);
-  }
-  
   pre, code {
     background-color: var(--code-bg-color) !important;
-    color: var(--code-text-color, inherit) !important;
+    color: var(--code-text-color) !important;
   }
   
   .main-content .highlight {
     background-color: var(--code-bg-color) !important;
   }
   
+  /* Links fallback if not set */
+  .main-content a {
+    color: var(--link-color, #0366d6) !important;
+  }
+  
+  /* Add your custom page nav or other styles */
+  .page-nav {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2em;
+    padding-top: 1em;
+    border-top: 1px solid var(--border-color, #eeebee);
+  }
+  .page-nav-prev,
+  .page-nav-next {
+    max-width: 45%;
+  }
+  .prev-link,
+  .next-link {
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+  }
+  .prev-link span:first-child,
+  .next-link span:first-child {
+    color: #5c5962;
+    font-size: 0.8em;
+    font-weight: normal;
+  }
+  .prev-link span:last-child,
+  .next-link span:last-child {
+    color: #2c84fa;
+    font-weight: bold;
+  }
+  
   /* Improve line spacing in paragraphs */
   .main-content p {
     line-height: 1.7;
   }
-</style>
+  </style>
