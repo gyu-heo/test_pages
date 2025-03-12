@@ -1,0 +1,38 @@
+<button class="theme-toggle" onclick="toggleTheme()" title="Toggle theme">
+  <span class="theme-icon"></span>
+</button>
+
+<style>
+  .theme-toggle {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--side-bar-bg-color);
+    border: 1px solid var(--border-color, #eeebee);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  }
+  
+  .theme-icon {
+    font-size: 20px;
+  }
+  
+  .light-theme .theme-icon::after {
+    content: "☀️";
+  }
+  
+  .warm-theme .theme-icon::after {
+    content: "📖";
+  }
+  
+  .dark-theme .theme-icon::after {
+    content: "🌙";
+  }
+</style>

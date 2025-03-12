@@ -1,0 +1,46 @@
+<div class="page-nav">
+  <div class="page-nav-prev">
+    {% if page.previous %}
+      {% if page.previous == false %}
+        <!-- No previous page -->
+      {% else %}
+        {% if page.previous contains '/' %}
+          <a href="{{ page.previous | relative_url }}" class="prev-link">
+            <span>Previous</span>
+            <span>Previous Page</span>
+          </a>
+        {% else %}
+          {% assign prev_page = site.pages | where: "path", page.collection | first %}
+          {% if prev_page %}
+            <a href="{{ prev_page.url | relative_url }}" class="prev-link">
+              <span>Previous</span>
+              <span>{{ prev_page.title }}</span>
+            </a>
+          {% endif %}
+        {% endif %}
+      {% endif %}
+    {% endif %}
+  </div>
+  <div class="page-nav-next">
+    {% if page.next %}
+      {% if page.next == false %}
+        <!-- No next page -->
+      {% else %}
+        {% if page.next contains '/' %}
+          <a href="{{ page.next | relative_url }}" class="next-link">
+            <span>Next</span>
+            <span>Next Page</span>
+          </a>
+        {% else %}
+          {% assign next_page = site.pages | where: "path", page.collection | first %}
+          {% if next_page %}
+            <a href="{{ next_page.url | relative_url }}" class="next-link">
+              <span>Next</span>
+              <span>{{ next_page.title }}</span>
+            </a>
+          {% endif %}
+        {% endif %}
+      {% endif %}
+    {% endif %}
+  </div>
+</div>
